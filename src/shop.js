@@ -1,5 +1,5 @@
 import React from "react";
-import Shopimage from "./shopimage";
+import Shopingimage from "./shopimage";
 function Shop(){
         const box=[
             {
@@ -121,7 +121,7 @@ function Shop(){
       </div>
       <div className="ml-12 mt-5 flex flex-wrap justify-evenly">
         {box.map(({ price, id, imageurl }) => (
-          <Shopimage id={id} price={price} url={imageurl} />
+          <Shopingimage id={id} price={price} url={imageurl} />
         ))}
       </div>
     </div>
