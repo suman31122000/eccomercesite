@@ -1,59 +1,61 @@
 
 import React from "react";
-import Shopimage from "./shopimage";
+import Shopingimage from "./shopimage";
 function Shop2(){
    const box=[
         {
             title:"jacket",
             price:400,
-            imageurl:'https://www.redwolf.in/image/catalog/sweatshirts/goku-kanji-dragon-ball-z-baseball-jacket-india.jpg',
-            id:'1'
+            imageurl:'https://i.pinimg.com/564x/bd/15/a9/bd15a957cb6019070e78411ab2f79d46.jpg',
+            id:7
         },
         {
             price:400,
-            imageurl:'https://images.asos-media.com/products/topshop-denim-oversized-jacket-in-mid-blue/204619124-1-midblue?$n_480w$&wid=476&fit=constrain',
-            id:'2'
+            imageurl:'https://static.dezeen.com/uploads/2018/02/ministry-of-supply-kickstarter-heated-jacket-design-technology_dezeen_2364_sq-3-300x300.jpg',
+            id:8
         },
         {
             price:400,
-            imageurl:'https://hips.hearstapps.com/esq.h-cdn.co/assets/16/08/980x980/square-1456186471-kanye-jacket-index.jpg?resize=1200:*',
-            id:'3'
+            imageurl:'https://cdn.shopify.com/s/files/1/0365/6204/3018/products/p91_grande.jpg?v=1617357809',
+            id:9
         },
         {
             price:400,
-            imageurl:'https://st2.depositphotos.com/1637787/6885/i/600/depositphotos_68855971-stock-photo-happy-couple-enjoying-time-together.jpg',
-            id:'4'
+            imageurl:'https://m.media-amazon.com/images/S/aplus-media-library-service-media/ef4c15f4-4d62-4d1f-acfe-6f8ffc7070fd.__CR0,43,1158,1158_PT0_SX300_V1___.png',
+            id:10
         },
         {
             price:400,
-            imageurl:'https://media.istockphoto.com/id/533098559/photo/snow-kids.jpg?s=612x612&w=0&k=20&c=pl2MpKc3LtBafre3ak3oZPugqkFcZNyZEG_MXzIBx_Q=',
-            id:'5'
+            imageurl:'https://www.zeusmotorcyclegear.com/wp-content/uploads/2021/07/Raptor5-Red-Riding-Jacket-300x300.png',
+            id:11
         },
         {
             price:400,
-            imageurl:'https://store.royalenfield.com/media/catalog/category/riding_jacket.jpg',
-            id:'6'
+            imageurl:'https://cdn.shopify.com/s/files/1/0250/9275/1413/products/Untitled-12_300x.jpg?v=1637372417',
+            id:12
         }
     ]
     return(
-        <div>
-           <div className="flex mx-5">
-            <p className="flex-1 mt-5 ml-20 text-xl">{box[0].title} for boys and girls: {box.length} items</p>
-            <div className="flex justify-end mr-12 mt-5 rounded-sm border-2 border-slate-900" >
-            <p className="flex">sort By:</p>
-            <select >
-            <option value={"default"}>Recommended</option>
-                <option value={"lh"}>price:low to high</option>
-                <option value={"hl"}>price:high to low</option>
-                </select>
-            </div>
-            </div> 
-        <div className="grid grid-cols-3 gap-4 mt-5 ml-12">
-            {box.map(({price,id,imageurl}) => (
-                    <Shopimage key={id} price={price} url={imageurl} />
-                ))}
+      <div>
+      <div className="mx-5 flex flex-wrap">
+        <p className="ml-20 mt-5 flex flex-1 text-xl shadow-xl items-center p-3">
+          {box[0].title} for boys and girls: {box.length} items
+        </p>
+        <div className="mr-12 mt-5 flex flex-wrap justify-end rounded-sm border-2 ">
+          <p className="flex justify-center items-center font-semibold">Sort By:</p>
+          <select>
+            <option value={'default'}>Recommended</option>
+            <option value={'lh'}>Price: Low to High</option>
+            <option value={'hl'}>Price: High to Low</option>
+          </select>
         </div>
-        </div>
+      </div>
+      <div className="ml-12 mt-5 flex flex-wrap justify-evenly">
+        {box.map(({id, price, imageurl,title }) => (
+          <Shopingimage id={id} price={price} url={imageurl} />
+        ))}
+      </div>
+    </div>
     )
 }
 

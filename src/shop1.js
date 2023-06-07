@@ -1,66 +1,68 @@
+import React from 'react';
+import Shopingimage from './shopimage';
+// import storeitems from './items.json'
 
-import React from "react";
-import Image from "./image"
-import Shopimage from "./shopimage";
-function Shop1(){
-   const box=[
-        {
-            title:'Hat',
-            price:200,
-            imageurl:'https://t3.ftcdn.net/jpg/02/75/74/58/360_F_275745846_slBI2EsTudIShef6hMliS6Oa123tC9Zv.jpg',
-            id:'1'
-        },
-        {
-            title:'Hat',
-            price:200,
-            imageurl:'https://www.shutterstock.com/image-photo/bamboo-hat-white-background-260nw-766363204.jpg',
-            id:'2'
-        },
-        {
-            title:'Hat',
-            price:200,
-            imageurl:'https://assets.ajio.com/medias/sys_master/root/20211013/NiBc/6166262baeb26901108e767c/puma__men_poly_cotton_cap_ind.jpg',
-            id:'3'
-        },
-        {
-            title:'Hat',
-            price:200,
-            imageurl:'https://t3.ftcdn.net/jpg/02/75/74/58/360_F_275745846_slBI2EsTudIShef6hMliS6Oa123tC9Zv.jpg',
-            id:'4'
-        },
-        {
-            title:'Hat',
-            price:200,
-            imageurl:'https://static3.depositphotos.com/1000388/110/i/450/depositphotos_1108058-stock-photo-luxury-women-red-hat.jpg',
-            id:'5'
-        },
-        {
-            title:'Hat',
-            price:200,
-            imageurl:'https://cdn.shopify.com/s/files/1/2273/0603/products/SF781-_1_grande.jpg?v=1638858658',
-            id:'6'
-        }
-    ]
-    return(
-        <div>
-           <div className="flex mx-5">
-            <p className="flex-1 mt-5 ml-20 text-xl">{box[0].title} for boys and girls: {box.length} items</p>
-            <div className="flex justify-end mr-12 mt-5 rounded-sm border-2 border-slate-900" >
-            <p className="flex">sort By:</p>
-            <select >
-            <option value={"default"}>Recommended</option>
-                <option value={"lh"}>price:low to high</option>
-                <option value={"hl"}>price:high to low</option>
-                </select>
-            </div>
-            </div> 
-        <div className="grid grid-cols-3 gap-4 mt-5 ml-12">
-            {box.map(({price,id,imageurl}) => (
-                    <Shopimage key={id} price={price} url={imageurl}/>
-                ))}
+function Shop1() {
+  const box = [
+    {
+        title:'Hat',
+        price:200,
+        imageurl:'https://t3.ftcdn.net/jpg/02/75/74/58/360_F_275745846_slBI2EsTudIShef6hMliS6Oa123tC9Zv.jpg',
+        id:1},
+    {
+        title:'Hat',
+        price:200,
+        imageurl:'https://www.shutterstock.com/image-photo/bamboo-hat-white-background-260nw-766363204.jpg',
+        id:2
+    },
+    {
+        title:'Hat',
+        price:200,
+        imageurl:'https://assets.ajio.com/medias/sys_master/root/20211013/NiBc/6166262baeb26901108e767c/puma__men_poly_cotton_cap_ind.jpg',
+        id:3
+    },
+    {
+        title:'Hat',
+        price:200,
+        imageurl:'https://cdn.shopify.com/s/files/1/2081/9771/files/WHC_Landing_Page_Company_on_a_Mission_-_Image_1_300x.jpg?v=1664900215',
+        id:4
+    },
+    {
+        title:'Hat',
+        price:200,
+        imageurl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPIwOw9ttcdbZpruy2Sfk8edUMf25OID-Whw&usqp=CAU',
+        id:5
+    },
+    {
+        title:'Hat',
+        price:200,
+        imageurl:'https://i.pinimg.com/474x/45/a1/24/45a124aa89dd16f69c631f4b88b40c09.jpg',
+        id:6
+    }
+  ];
+  // const {title,price,imageurl,id}=storeitems
+  return (
+    <div>
+      <div className="mx-5 flex flex-wrap">
+        <p className="ml-20 mt-5 flex flex-1 text-xl shadow-xl items-center p-3">
+          {box[0].title} for boys and girls: {box.length} items
+        </p>
+        <div className="mr-12 mt-5 flex flex-wrap justify-end rounded-sm border-2 ">
+          <p className="flex justify-center items-center font-semibold">Sort By:</p>
+          <select>
+            <option value={'default'}>Recommended</option>
+            <option value={'lh'}>Price: Low to High</option>
+            <option value={'hl'}>Price: High to Low</option>
+          </select>
         </div>
-        </div>
-    )
+      </div>
+      <div className="ml-12 mt-5 flex flex-wrap justify-evenly">
+        {box.map(({id, price, imageurl,title }) => (
+          <Shopingimage id={id} price={price} url={imageurl} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Shop1;

@@ -1,56 +1,84 @@
-import React from "react";
+import React from 'react';
+import { useState } from 'react';
+function Account() {
+  const [status, setstatus] = useState(false);
+  function func() {
+    setstatus(true);
+  }
 
-function Account(){
-    return(
-        <div className="bg-gradient-to-r from-slate-700 to-slate-50 ">
-        <div className="flex justify-between mx-[40vh] p-8 ">
+  function closemodal() {
+    setstatus((status) => !status);
+  }
+  return (
+    <div className="bg-gradient-to-r from-slate-700 to-slate-50 ">
+      <div className="mx-[40vh] flex justify-between p-8 shadow-2xl ">
         <p className="text-4xl font-semibold">Account</p>
-        <button  className="mt-0 px-3 py-2 mx-2 h-9 w-32 bg-gray-900 text-white rounded-md shadow-lg shadow-gray-500/50 text-sm font-semibold hover:bg-gray-800">Sign out</button>
-    </div>
-    <div className="flex ml-[40vh] mt-10 ">
-        <div >
-                   <div className=" h-20 w-60 flex flex-col justify-center items-center">
-                        <p className="text-4xl font-semibold">Name</p>
-                        <p className="text-xl">abc@gmail.com</p>
-                    </div>
-                    <div className="flex flex-col items-start mr-10 mt-20  h-[62vh] w-60">
-                        <button className="text-2xl m-1 hover:bg-gray-900 hover:text-white rounded-md">personal information</button>
-                        <button className="text-2xl m-1 hover:bg-gray-900 hover:text-white rounded-md">Billing and Payments</button>
-                        <button className="text-2xl m-1 hover:bg-gray-900 hover:text-white rounded-md">order history</button>
-                    </div>
+        <button className="mx-2 mt-0 h-9 w-32 rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-gray-500/50 hover:bg-gray-800">
+          Sign out
+        </button>
+      </div>
+      <div className="ml-[40vh] mt-10 flex ">
+        <div>
+          <div className=" flex h-20 w-60 flex-col items-center justify-center">
+            <p className="text-4xl font-semibold">Suman Bando</p>
+            <p className="text-xl">abc@gmail.com</p>
+          </div>
+          <div className="mr-10 mt-20 flex h-[48vh] w-[100%]  flex-col items-start ">
+            <button
+              onClick={func}
+              className="m-1 rounded-md text-2xl hover:bg-gray-900 hover:text-white"
+            >
+              personal information
+            </button>
+            <button className="m-1 rounded-md text-2xl hover:bg-gray-900 hover:text-white">
+              Billing and Payments
+            </button>
+            <button className="m-1 rounded-md text-2xl hover:bg-gray-900 hover:text-white">
+              order history
+            </button>
+          </div>
         </div>
-        <div className="">
-        <div className="h-[20vh] ">
-                    <p className="text-3xl m-2">Personal information</p>
-                    <p className="text-xl m-2">Manage your personal information including phone no and email address</p>
-                </div>
-                <div className="grid grid-cols-2 ">
-                    <div className="h-24 w-60 bg-slate-300 m-5 ">
-                        <p className="mt-5 ml-5 text-3xl">Name</p>
-                        <p className="ml-5">Suman bando</p>
-                    </div>
-                    <div className="h-24 w-60 bg-slate-300 m-5">
-                        <p className="mt-5 ml-5 text-3xl">Date of Birth</p>
-                        <p className="ml-5">1 jan 2023</p>
-                    </div>
-                    <div className="h-24 w-60 bg-slate-300 m-5">
-                        <p className="mt-5 ml-5 text-3xl"> country Region</p>
-                        <p className="ml-5"> delhi,india</p>
-                    </div>
-                    <div className="h-24 w-60 bg-slate-300 m-5">
-                        <p className="mt-5 ml-5 text-3xl">Language</p>
-                        <p className="ml-5">English</p>
-                    </div>
-                    <div className="h-24 w-60 bg-slate-300 m-5">
-                        <p className="mt-5 ml-5 text-3xl">Contactable At</p>
-                        <p className="ml-5">abc@gmail.com</p>
-                    </div>
-        </div>
-        </div>
-    </div>
+      </div>
+      {status && (
+        <div
+          type="button"
+          onClick={closemodal}
+          className="fixed inset-0 z-50 ml-36 mt-[14vh] flex h-[80vh] w-[90%] flex-wrap items-center justify-center  overflow-y-auto overflow-x-hidden bg-gradient-to-r from-slate-100 to-slate-700 "
+        >
+          <div className="h-[20vh] shadow-2xl">
+            <p className="m-2 text-3xl">Personal information</p>
+            <p className="m-2 text-xl">
+              Manage your personal information including phone no and email
+              address
+            </p>
+          </div>
 
-
+          <div className="grid grid-cols-2 ">
+            <div className="m-5 h-24 w-60 bg-slate-300 ">
+              <p className="ml-5 mt-5 text-3xl">Name</p>
+              <p className="ml-5">Suman bando</p>
+            </div>
+            <div className="m-5 h-24 w-60 bg-slate-300">
+              <p className="ml-5 mt-5 text-3xl">Date of Birth</p>
+              <p className="ml-5">1 jan 2023</p>
+            </div>
+            <div className="m-5 h-24 w-60 bg-slate-300">
+              <p className="ml-5 mt-5 text-3xl"> country Region</p>
+              <p className="ml-5"> delhi,india</p>
+            </div>
+            <div className="m-5 h-24 w-60 bg-slate-300">
+              <p className="ml-5 mt-5 text-3xl">Language</p>
+              <p className="ml-5">English</p>
+            </div>
+            <div className="m-5 h-24 w-60 bg-slate-300">
+              <p className="ml-5 mt-5 text-3xl">Contactable At</p>
+              <p className="ml-5">abc@gmail.com</p>
+            </div>
+          </div>
+          <div className='bg'></div>
         </div>
-    )
+      )}
+    </div>
+  );
 }
 export default Account;
